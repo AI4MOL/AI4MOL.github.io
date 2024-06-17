@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description"
+      content="Multi-motif scaffolding without given prior knowledge.">
+    <meta name="keywords"
+      content="AI4Science, Protein Design, Motif scaffolding">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Boost your crystal model with denoising pre-training
+    </title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.ico">
+
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+  </head>
+  <body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu"
+          aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start"
+          style="flex-grow: 1; justify-content: center;">
+          <a class="navbar-item" href="https://github.com/Ai4MOL">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More Research
+            </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item"
+                href="https://www.nature.com/articles/s41586-023-06415-8">
+                RFDiffusion
+              </a>
+              <a class="navbar-item"
+                href="https://www.nature.com/articles/s41586-023-06728-8">
+                Chroma
+              </a>
+              <a class="navbar-item"
+                href="https://openreview.net/forum?id=9UIGyJJpay&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DICLR.cc%2F2024%2FConference%2FAuthors%23your-submissions)">
+                VFN
+              </a>
+              <a class="navbar-item" href="https://arxiv.org/abs/2302.02277">
+                SE(3) diffusion
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">Boost your crystal model
+                with denoising pre-training</h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://eurekashen.github.io">Shuaike Shen
+                  </a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://zjukeliu.github.io/">Ke Liu
+                  </a><sup>1</sup>,</span>
+                <span class="author-block">
+                  Muzhi Zhu<sup>1</sup>,
+                </span>
+
+                <span class="author-block">
+                  <sup>†</sup><a href="https://stan-haochen.github.io">Hao
+                    Chen</a><sup>1</sup>,
+                </span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><b>ICML'2024 AI for Science Workshop
+                  </b></span>
+                <br>
+                <span class="author-block"><sup>1</sup>Zhejiang
+                  University</span>
+                <br>
+                <span class="author-block"><sup>†</sup> denotes Corresponding
+                  Author</span>
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a href="https://github.com/Ai4MOL"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://github.com/Ai4MOL"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                  <!-- Code Link. -->
+                  <span class="link-block">
+                    <a href="https://github.com/AI4MOL"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-light is-small">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-steve">
+              <img src="./static/images/1.gif" alt="Steve Animation"
+                height="200%" />
+            </div>
+            <div class="item item-chair-tp">
+              <img src="./static/images/2.gif" alt="Chair TP Animation"
+                height="100%" />
+            </div>
+            <div class="item item-shiba">
+              <img src="./static/images/3.gif" alt="Shiba Animation"
+                height="100%" />
+            </div>
+            <div class="item item-fullbody">
+              <img src="./static/images/4.gif" alt="Fullbody Animation"
+                height="100%" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Crystals play a vital role in a wide range of materials,
+                influencing both cutting-edge technologies and everyday
+                applications.
+                Recently, deep learning approaches for crystal property
+                prediction have shown exceptional performance, driving
+                significant progress in material discovery.
+                However, supervised approaches can only be trained on labeled
+                data and the number of data points varies for different
+                properties.
+                Making full use of unlabeled data remains an ongoing challenge.
+                To address this issue, we propose an unsupervised Denoising
+                Pre-training Framework (DPF) for crystal structure.
+                DPF trains a model to reconstruct the original crystal structure
+                from recover the masked atom types, perturbed atom positions,
+                and perturbed crystal lattices.
+                Through the pre-training, models learn the intrinsic features of
+                crystal structures and capture the key features influencing
+                crystal properties.
+                We pre-train models on 380,743 unlabeled crystal structures and
+                fine-tune them on downstream property prediction benchmarks.
+                Extensive experiments demonstrate the effectiveness of our
+                denoising pre-training framework.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+
+        <div class="columns is-centered">
+
+          <!-- Animation. -->
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <h2 class="title is-3">Denoising Pre-training Framework</h2>
+
+              <!-- Interpolating. -->
+              <!-- <h3 class="title is-4">Sampling & Preprocess</h3> -->
+              <div class="content has-text-justified">
+                <p>
+                  The pipeline of our denoising pre-training framework. The
+                  denoising network component can be replaced with any feature
+                  extraction network. The downstream tasks can include crystal
+                  property prediction, classification, and crystal generation.
+                </p>
+              </div>
+
+              <div class="content has-text-centered">
+                <img src="./static/images/pipeline.png" width="80%">
+              </div>
+              <br />
+              <!--/ Interpolating. -->
+
+              <!-- Re-rendering. -->
+              <h2 class="title is-3">Experiments</h2>
+              <h3 class="title is-4">Materials Project Dataset</h3>
+              <div class="content has-text-justified">
+                <p>
+                  The experimental results in terms of MAE on <b>Materials
+                    Project
+                    dataset</b>. * denotes the results are taken from the
+                  referred
+                  papers.
+                  The best results are shown in bold and the sub-optimal results
+                  are underlined
+                </p>
+              </div>
+              <div class="content has-text-centered">
+                <img src="./static/images/res2.png" width="56%">
+              </div>
+              <h3 class="title is-4">Jarvis Dataset</h3>
+              <div class="content has-text-justified">
+                <p>
+                  The experimental results in terms of MAE on <b>JARVIS
+                    dataset</b>. *
+                  denotes the results are taken from the referred papers. The
+                  best
+                  results are shown in bold and the sub-optimal results are
+                  underlined.
+                </p>
+              </div>
+              <div class="content has-text-centered">
+                <img src="./static/images/res1.png" width="62%">
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+          <h2 class="title">BibTeX</h2>
+          <pre><code>
+@inproceedings{
+    anonymous2024boost,
+    title={Boost your crystal model with denoising pre-training},
+    author={Anonymous},
+    booktitle={ICML 2024 AI for Science Workshop},
+    year={2024},
+    url={https://openreview.net/forum?id=u2qYzRRg02}
+}
+      </code></pre>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="content has-text-centered">
+            <a class="icon-link"
+              href="./static/videos/nerfies_paper.pdf">
+              <i class="fas fa-file-pdf"></i>
+            </a>
+            <a class="icon-link" href="https://github.com/keunhong"
+              class="external-link" disabled>
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="content">
+                <p>
+                  This website is licensed under a <a rel="license"
+                    href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                    Commons Attribution-ShareAlike 4.0 International
+                    License</a>.
+                </p>
+                <p>
+                  This means you are free to borrow the <a
+                    href="https://github.com/nerfies/nerfies.github.io">source
+                    code</a> of this website,
+                  we just ask that you link back to this page in the footer.
+                  Please remember to remove the analytics code included in the
+                  header of the website which
+                  you do not want on your website.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </body>
+  </html>
